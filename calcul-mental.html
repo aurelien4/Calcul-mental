@@ -3,7 +3,7 @@
   <meta charset="utf-8" />
 <script>
     //random du 1 chiffre par l'ordi
-    var chiffre1 = Math.floor(Math.random()*10);
+    var chiffre1 = Math.round(Math.random() * 10);
     //tableau avec toute les opération possible dans cette exo
     var operation = [ '+', '-', '*' ];
     //Ici on effectue un choix random d'opération dans le tableau
@@ -11,15 +11,16 @@
     //random du tableau pour la 2eme partie
     var random2 = operation[Math.floor(Math.random() * operation.length)];
     //Ramdom du 2ème chiffre par l'ordi
-    var chiffre2 = Math.floor(Math.random()*10);
+    var chiffre2 = Math.round(Math.random() * 10);
     //random d'un 3ème chiffre pour se preparer au passage de la 2eme partie
-    var chiffre3 = Math.floor(Math.random()*10);
+    var chiffre3 = Math.round(Math.random() * 10);
     //reponse du pc
     var reponsepc = eval(chiffre1 + random + chiffre2);
-    console.log(chiffre1 + random + chiffre2);
-    var reponsepc2 = eval(chiffre1 + random + chiffre2 + random + chiffre3);
+    var reponsepc2;
 
-    console.log("reponsepc = " + reponsepc);
+    function calcul(){
+      reponsepc2 = eval(chiffre1 + random + chiffre2 + random2 + chiffre3);
+    };
     //reponse utilisateur
     var reponse;
     /*for(i = 0 ;i < 3; i++){
@@ -35,16 +36,14 @@
 
     }*/alert("bravo tu a reussi 3 fois, augmenton le niveau");
   for(i= 0; i < 2; i++){
-    chiffre1 = Math.floor(Math.random()*10);
+    chiffre1 = Math.round(Math.random() * 10);
     random = operation[Math.floor(Math.random() * operation.length)];
-    chiffre2 = Math.floor(Math.random()*10);
+    chiffre2 = Math.round(Math.random() * 10);
     random2 = operation[Math.floor(Math.random() * operation.length)];
-    chiffre3 = Math.floor(Math.random()*10);
-    console.log(chiffre1 + random + chiffre2 + random + chiffre3 + " = " + reponsepc2);
-    console.log("reponsepc = " + reponsepc);
+    chiffre3 = Math.round(Math.random() * 10);
 
+    calcul();
     alert(parseInt(chiffre1) + random + parseInt(chiffre2) + random2 + parseInt(chiffre3));
-    console.log("reponsepc2 = " + reponsepc2);
     reponse = prompt("reponse?");
     if(reponse == reponsepc2){
       alert("bien joué" + " " + reponsepc2);
